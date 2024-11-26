@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Start of Zeacon Code -->
+    <script type="text/javascript" async="" id="zeacon-sdk"
+        src="https://licencetotest.com/sdk/correlator.js?api-key=da3fb87d-e627-431e-a7c7-63b1003ef440"></script>
+    <!-- End of Zeacon Code -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            padding: 20px;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* Contact form styles */
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f4f4f4;
+            font-size: 14px;
+        }
+
+        /* Mobile responsive layout */
+        @media (max-width: 768px) {
+            iframe {
+                max-width: 100%;
+                height: auto;
+            }
+
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+
+            form {
+                padding: 10px;
+            }
+
+            input[type="submit"] {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div style="padding:56.25% 0 0 0;position:relative">
+            <div style="height:100%;left:0;position:absolute;top:0;width:100%"><iframe
+                    src="https://licencetotest.com/player/19f34cdf-7f9d-431d-8ca4-f7abdcb394b6"
+                    title="Zeacon | Embed Video" width="100%" height="100%" allowfullscreen=""
+                    style="border:0px"></iframe>
+                <script id="zeacon-sdk-correlation-manager" type="text/javascript"
+                    src="https://licencetotest.com/sdk/correlation-manager/bundle.js"></script>
+            </div>
+        </div>
+        <h1>Welcome to My Website 1</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required><br>
+
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            var formData = new FormData(this);
+
+            // Send form data using fetch API
+            fetch("save_form_data.php", {
+                method: "POST",
+                body: formData
+            })
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data);
+                    alert("Form submitted successfully!");
+                    // Optionally, you can redirect the user to another page after successful form submission
+                    // window.location.href = "thank_you.html";
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert("An error occurred while submitting the form. Please try again later.");
+                });
+        });
+    </script>
+</body>
+
+</html>
