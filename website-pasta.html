@@ -29,9 +29,12 @@
         }
 
         header iframe {
-            width: 100%;
+            width: 80%;
             height: 500px;
+            margin: 0 auto;
+            display: block;
             border: 0;
+            border-radius: 8px;
         }
 
         header h1 {
@@ -213,30 +216,30 @@
 
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <main>
+    <main id="home">
         <!-- Featured Properties Section -->
         <section id="featured-properties">
             <h2>Featured Properties</h2>
             <div class="property-card">
-                <img src="https://via.placeholder.com/300x200" alt="Luxury Apartment">
+                <img src="https://via.placeholder.com/300x200/cccccc/ffffff?text=Property+1" alt="Luxury Apartment">
                 <h3>Luxury Apartment in Downtown</h3>
                 <p>This luxury apartment offers a prime location with stunning views and modern amenities.</p>
                 <p class="price">$1,500,000</p>
             </div>
             <div class="property-card">
-                <img src="https://via.placeholder.com/300x200" alt="Cozy Home">
+                <img src="https://via.placeholder.com/300x200/cccccc/ffffff?text=Property+2" alt="Cozy Home">
                 <h3>Cozy Family Home</h3>
                 <p>Spacious family home located in a peaceful neighborhood with great schools nearby.</p>
                 <p class="price">$850,000</p>
             </div>
             <div class="property-card">
-                <img src="https://via.placeholder.com/300x200" alt="Modern Studio">
+                <img src="https://via.placeholder.com/300x200/cccccc/ffffff?text=Property+3" alt="Modern Studio">
                 <h3>Modern Studio Apartment</h3>
                 <p>Stylish studio apartment in a vibrant urban setting, perfect for young professionals.</p>
                 <p class="price">$500,000</p>
@@ -244,7 +247,7 @@
         </section>
 
         <!-- About Us Section -->
-        <section id="about-us">
+        <section id="about">
             <h2>About Us</h2>
             <p>We are a dedicated team of real estate experts, helping individuals and families find their perfect home. With years of experience in the market, we offer personalized services to guide you every step of the way in your home-buying journey.</p>
         </section>
@@ -286,6 +289,8 @@
                 .then(data => {
                     console.log(data);
                     alert("Form submitted successfully!");
+                    // Optionally, you can redirect the user to another page after successful form submission
+                    // window.location.href = "thank_you.html";
                 })
                 .catch(error => {
                     console.error('Error:', error);
