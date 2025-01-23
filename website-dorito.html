@@ -124,6 +124,21 @@
         .section.active {
             display: block;
         }
+
+        /* Video container */
+        .video-container {
+            padding: 56.25% 0 0 0;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .video-container iframe {
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -144,6 +159,15 @@
         <section id="home" class="section">
             <h2>Welcome to the Home Section</h2>
             <p>This is the home section where you can add introductory content about your website.</p>
+            
+            <!-- Embed Videos -->
+            <div class="video-container">
+                <iframe src="https://licencetotest.com/embed/b3549821ac6" title="Zeacon | Embed Video" allowfullscreen="" style="border:0px"></iframe>
+            </div>
+
+            <div class="video-container">
+                <iframe src="https://licencetotest.com/player/49044de7-1081-48cd-ab80-df8386604ba5" title="Zeacon | Embed Video" allowfullscreen="" style="border:0px"></iframe>
+            </div>
         </section>
 
         <!-- About Section -->
