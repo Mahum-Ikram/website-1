@@ -8,34 +8,46 @@
     <!-- End of Zeacon Code -->
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Real Estate Website</title>
     <style>
         /* Basic Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
         }
 
         header {
-            padding: 20px;
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
             text-align: center;
-            background-color: #f4f4f4;
+            position: relative;
         }
 
-        iframe {
+        header iframe {
             width: 100%;
-            height: 100%;
+            height: 500px;
             border: 0;
         }
 
-        h1 {
-            margin-top: 20px;
+        header h1 {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 36px;
         }
 
         nav ul {
             list-style-type: none;
             padding: 0;
             margin: 0;
+            text-align: center;
+            background-color: #34495e;
+            margin-top: 10px;
         }
 
         nav ul li {
@@ -45,49 +57,74 @@
 
         nav ul li a {
             text-decoration: none;
-            font-size: 16px;
-            color: #333;
+            font-size: 18px;
+            color: white;
+            padding: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #1abc9c;
+        }
+
+        /* Main Section */
+        main {
+            padding: 40px 20px;
+        }
+
+        section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
         }
 
         .property-card {
             display: inline-block;
             width: 30%;
-            margin: 10px;
+            margin: 15px;
             padding: 20px;
-            background-color: #f9f9f9;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
 
         .property-card img {
             width: 100%;
             height: auto;
-            border-radius: 5px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .property-card img:hover {
+            transform: scale(1.05);
         }
 
         .property-card h3 {
-            margin: 10px 0;
-            font-size: 20px;
+            font-size: 24px;
+            margin-top: 15px;
+            color: #2c3e50;
         }
 
         .property-card p {
             font-size: 16px;
+            color: #7f8c8d;
         }
 
         .property-card .price {
-            color: #4CAF50;
+            font-size: 20px;
+            color: #e74c3c;
             font-weight: bold;
         }
 
-        /* Contact form styles */
+        /* Contact Form */
         form {
             max-width: 600px;
-            margin: 20px auto;
+            margin: 30px auto;
             padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         label {
@@ -103,34 +140,45 @@
             margin-bottom: 15px;
             border: 1px solid #ccc;
             border-radius: 4px;
+            font-size: 16px;
         }
 
         input[type="submit"] {
             width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
+            padding: 12px;
+            background-color: #2ecc71;
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            font-size: 18px;
         }
 
         input[type="submit"]:hover {
-            background-color: #45a049;
+            background-color: #27ae60;
         }
 
         footer {
+            background-color: #34495e;
+            color: white;
+            padding: 20px 0;
             text-align: center;
-            padding: 10px;
-            background-color: #f4f4f4;
+        }
+
+        footer p {
+            margin: 0;
             font-size: 14px;
         }
 
-        /* Mobile responsive layout */
+        /* Responsive Design */
         @media (max-width: 768px) {
-            iframe {
-                max-width: 100%;
-                height: auto;
+            .property-card {
+                width: 100%;
+                margin: 10px 0;
+            }
+
+            header h1 {
+                font-size: 28px;
             }
 
             nav ul li {
@@ -139,59 +187,56 @@
             }
 
             form {
-                padding: 10px;
+                padding: 15px;
             }
 
             input[type="submit"] {
-                padding: 12px;
-            }
-
-            .property-card {
-                width: 100%;
-                margin: 10px 0;
+                padding: 15px;
             }
         }
     </style>
 </head>
 
 <body>
+
     <header>
         <div style="padding:56.25% 0 0 0;position:relative">
-            <div style="height:100%;left:0;position:absolute;top:0;width:100%"><iframe
-                    src="https://licencetotest.com/player/305a0727-bf30-4ea1-adab-0e006e33b704"
-                    title="Zeacon | Embed Video" width="100%" height="100%" allowfullscreen=""
-                    style="border:0px"></iframe>
+            <div style="height:100%;left:0;position:absolute;top:0;width:100%">
+                <iframe src="https://licencetotest.com/player/305a0727-bf30-4ea1-adab-0e006e33b704" title="Zeacon | Embed Video"
+                    width="100%" height="100%" allowfullscreen="" style="border:0px"></iframe>
                 <script id="zeacon-sdk-correlation-manager" type="text/javascript"
                     src="https://licencetotest.com/sdk/correlation-manager/bundle.js"></script>
             </div>
         </div>
-        <h1>Welcome to Our Real Estate Website</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <h1>Real Estate Solutions</h1>
     </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
 
     <main>
         <!-- Featured Properties Section -->
         <section id="featured-properties">
             <h2>Featured Properties</h2>
             <div class="property-card">
-                <img src="https://via.placeholder.com/300x200" alt="Property 1">
+                <img src="https://via.placeholder.com/300x200" alt="Luxury Apartment">
                 <h3>Luxury Apartment in Downtown</h3>
                 <p>This luxury apartment offers a prime location with stunning views and modern amenities.</p>
                 <p class="price">$1,500,000</p>
             </div>
             <div class="property-card">
-                <img src="https://via.placeholder.com/300x200" alt="Property 2">
+                <img src="https://via.placeholder.com/300x200" alt="Cozy Home">
                 <h3>Cozy Family Home</h3>
                 <p>Spacious family home located in a peaceful neighborhood with great schools nearby.</p>
                 <p class="price">$850,000</p>
             </div>
             <div class="property-card">
-                <img src="https://via.placeholder.com/300x200" alt="Property 3">
+                <img src="https://via.placeholder.com/300x200" alt="Modern Studio">
                 <h3>Modern Studio Apartment</h3>
                 <p>Stylish studio apartment in a vibrant urban setting, perfect for young professionals.</p>
                 <p class="price">$500,000</p>
@@ -201,7 +246,7 @@
         <!-- About Us Section -->
         <section id="about-us">
             <h2>About Us</h2>
-            <p>We are a dedicated team of real estate experts helping individuals and families find their perfect home. With years of experience in the market, we offer personalized services to guide you every step of the way in your home-buying journey.</p>
+            <p>We are a dedicated team of real estate experts, helping individuals and families find their perfect home. With years of experience in the market, we offer personalized services to guide you every step of the way in your home-buying journey.</p>
         </section>
 
         <!-- Contact Us Section -->
@@ -209,13 +254,13 @@
             <h2>Contact Us</h2>
             <form id="contactForm">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required><br>
+                <input type="text" id="name" name="name" required>
 
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br>
+                <input type="email" id="email" name="email" required>
 
                 <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone" required><br>
+                <input type="tel" id="phone" name="phone" required>
 
                 <input type="submit" value="Submit">
             </form>
@@ -223,7 +268,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Your Real Estate Company. All rights reserved.</p>
+        <p>&copy; 2024 Real Estate Solutions. All rights reserved.</p>
     </footer>
 
     <script>
@@ -241,8 +286,6 @@
                 .then(data => {
                     console.log(data);
                     alert("Form submitted successfully!");
-                    // Optionally, you can redirect the user to another page after successful form submission
-                    // window.location.href = "thank_you.html";
                 })
                 .catch(error => {
                     console.error('Error:', error);
@@ -250,6 +293,7 @@
                 });
         });
     </script>
+
 </body>
 
 </html>
