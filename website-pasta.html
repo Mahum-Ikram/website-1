@@ -2,122 +2,90 @@
 <html lang="en">
 
 <head>
-    <!-- Start of Zeacon Code -->
-    <script type="text/javascript" async="" id="zeacon-sdk"
-        src="https://licencetotest.com/sdk/correlator.js?api-key=c0988d6d-b45f-48f0-869a-54a4720eb41e"></script>
-    <!-- End of Zeacon Code -->
-    <div style="padding:56.25% 0 0 0;position:relative">
-        <div style="height:100%;left:0;position:absolute;top:0;width:100%"><iframe
-                src="https://licencetotest.com/player/49044de7-1081-48cd-ab80-df8386604ba5" title="Zeacon | Embed Video"
-                width="100%" height="100%" allowfullscreen="" style="border:0px"></iframe>
-            <script id="zeacon-sdk-correlation-manager" type="text/javascript"
-                src="https://licencetotest.com/sdk/correlation-manager/bundle.js"></script>
-        </div>
-    </div>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Find your dream home with our comprehensive real estate listings.">
-    <title>Real Estate Website</title>
+    <title>Dream Homes Realty</title>
     <style>
-        /* Core styles for your real estate website */
+        /* Basic Styles */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
         }
 
         header {
-            background-color: #333;
-            color: #fff;
-            padding: 15px 20px;
+            background-color: #4CAF50;
+            color: white;
             text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
+            padding: 20px;
         }
 
         nav {
-            background-color: #555;
-            padding: 10px 20px;
+            background-color: #333;
+            overflow: hidden;
         }
 
         nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
+            list-style-type: none;
+            margin: 0;
             padding: 0;
+            text-align: center;
         }
 
         nav ul li {
-            margin: 0 15px;
+            display: inline;
         }
 
         nav ul li a {
-            color: #fff;
             text-decoration: none;
-            font-size: 16px;
+            color: white;
+            padding: 14px 20px;
+            display: inline-block;
         }
 
         nav ul li a:hover {
-            text-decoration: underline;
-        }
-
-        main {
-            padding: 20px;
+            background-color: #575757;
         }
 
         section {
-            margin-bottom: 40px;
+            padding: 40px 20px;
         }
 
-        .property-card {
-            display: inline-block;
-            width: 30%;
-            margin: 10px;
-            background-color: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s;
+        #home {
+            background-color: #f9f9f9;
+        }
+
+        #about {
+            background-color: #eef;
+        }
+
+        #properties {
+            background-color: #ffe;
+        }
+
+        #contact {
+            background-color: #fef;
+        }
+
+        footer {
             text-align: center;
-            padding: 20px;
-        }
-
-        .property-card:hover {
-            transform: scale(1.05);
-        }
-
-        .property-card h3 {
-            margin: 10px 0;
-            font-size: 18px;
-            color: #333;
-        }
-
-        .property-card p {
-            margin: 10px 0;
-            color: #555;
-        }
-
-        .property-card .price {
-            margin: 10px 0;
-            color: #4CAF50;
-            font-weight: bold;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
         }
 
         form {
-            max-width: 600px;
-            margin: auto;
-            padding: 20px;
+            max-width: 500px;
+            margin: 0 auto;
             background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         form label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             font-weight: bold;
         }
 
@@ -140,13 +108,6 @@
         form input[type="submit"]:hover {
             background-color: #45a049;
         }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px;
-        }
     </style>
 </head>
 
@@ -157,38 +118,40 @@
 
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="properties.html">Properties</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#properties">Properties</a></li>
+            <li><a href="#contact">Contact Us</a></li>
         </ul>
     </nav>
 
     <main>
-        <!-- Featured Properties -->
-        <section id="featured-properties">
-            <h2>Featured Properties</h2>
-            <div class="property-card">
-                <h3>Luxury Apartment</h3>
-                <p>Prime location with stunning views and modern amenities.</p>
-                <p class="price">$1,500,000</p>
-            </div>
-            <div class="property-card">
-                <h3>Cozy Family Home</h3>
-                <p>Located in a peaceful neighborhood with great schools nearby.</p>
-                <p class="price">$850,000</p>
-            </div>
-            <div class="property-card">
-                <h3>Studio Apartment</h3>
-                <p>Perfect for young professionals in a vibrant urban setting.</p>
-                <p class="price">$500,000</p>
-            </div>
+        <!-- Home Section -->
+        <section id="home">
+            <h2>Discover Your Dream Home</h2>
+            <p>Explore a wide variety of properties to find the one that fits your lifestyle.</p>
         </section>
 
-        <!-- Contact Form -->
+        <!-- About Us Section -->
+        <section id="about">
+            <h2>About Us</h2>
+            <p>We are a team of experienced real estate professionals committed to helping you find your perfect home. With years of expertise, we provide personalized services and trusted guidance in your home-buying journey.</p>
+        </section>
+
+        <!-- Properties Section -->
+        <section id="properties">
+            <h2>Our Properties</h2>
+            <ul>
+                <li><strong>Luxury Apartment:</strong> $1,500,000</li>
+                <li><strong>Cozy Family Home:</strong> $850,000</li>
+                <li><strong>Studio Apartment:</strong> $500,000</li>
+            </ul>
+        </section>
+
+        <!-- Contact Us Section -->
         <section id="contact">
             <h2>Contact Us</h2>
-            <form>
+            <form id="contactForm">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
 
@@ -198,7 +161,7 @@
                 <label for="message">Message:</label>
                 <textarea id="message" name="message" rows="4" required></textarea>
 
-                <input type="submit" value="Send Message">
+                <input type="submit" value="Send">
             </form>
         </section>
     </main>
@@ -206,6 +169,24 @@
     <footer>
         <p>&copy; 2024 Dream Homes Realty. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav ul li a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Contact form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Thank you for contacting us! We will get back to you soon.');
+        });
+    </script>
 </body>
 
 </html>
