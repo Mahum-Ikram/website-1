@@ -116,6 +116,14 @@
                 padding: 12px;
             }
         }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
     </style>
 </head>
 
@@ -124,15 +132,15 @@
         <h1>Welcome to My Website</h1>
         <nav>
             <ul>
-                <li><a href="#videoSection">Videos</a></li>
-                <li><a href="#contactSection">Contact</a></li>
+                <li><a href="#videoSection" onclick="changeSection('videoSection')">Videos</a></li>
+                <li><a href="#contactSection" onclick="changeSection('contactSection')">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <!-- Video Section -->
-        <section id="videoSection">
+        <section id="videoSection" class="section">
             <h2>Embed Video</h2>
             <div style="padding:56.25% 0 0 0;position:relative">
                 <div style="height:100%;left:0;position:absolute;top:0;width:100%"><iframe
@@ -156,7 +164,7 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contactSection">
+        <section id="contactSection" class="section">
             <h2>Contact Us</h2>
             <form id="contactForm">
                 <label for="name">Name:</label>
@@ -179,6 +187,34 @@
     </footer>
 
     <script>
+        // Function to switch sections based on the hash
+        function changeSection(sectionId) {
+            // Hide all sections
+            var sections = document.querySelectorAll('.section');
+            sections.forEach(function (section) {
+                section.classList.remove('active');
+            });
+
+            // Show the selected section
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        // Listen for changes in the URL hash
+        window.addEventListener('hashchange', function () {
+            var sectionId = window.location.hash.substring(1);
+            if (sectionId) {
+                changeSection(sectionId);
+            }
+        });
+
+        // Initialize with the default section
+        if (window.location.hash) {
+            changeSection(window.location.hash.substring(1));
+        } else {
+            changeSection('videoSection');
+        }
+
+        // Handle form submission
         document.getElementById("contactForm").addEventListener("submit", function (event) {
             event.preventDefault(); // Prevent default form submission
 
