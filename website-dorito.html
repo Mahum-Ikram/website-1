@@ -2,12 +2,8 @@
 <html lang="en">
 
 <head>
-    <!-- Start of Zeacon Code -->
-    <script type="text/javascript" async="" id="zeacon-sdk"
-        src="https://licencetotest.com/sdk/correlator.js?api-key=c0988d6d-b45f-48f0-869a-54a4720eb41e"></script>
-    <!-- End of Zeacon Code -->
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
     <style>
         /* Basic Styles */
         body {
@@ -21,12 +17,6 @@
             padding: 20px;
             text-align: center;
             background-color: #f4f4f4;
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
         }
 
         h1 {
@@ -48,6 +38,17 @@
             text-decoration: none;
             font-size: 16px;
             color: #333;
+            cursor: pointer;
+        }
+
+        /* Sections */
+        .section {
+            display: none;
+            padding: 20px;
+        }
+
+        .section.active {
+            display: block;
         }
 
         /* Contact form styles */
@@ -96,48 +97,12 @@
             font-size: 14px;
         }
 
-        /* Mobile responsive layout */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            iframe {
-                max-width: 100%;
-                height: auto;
-            }
-
             nav ul li {
                 display: block;
                 margin: 10px 0;
             }
-
-            form {
-                padding: 10px;
-            }
-
-            input[type="submit"] {
-                padding: 12px;
-            }
-        }
-
-        .section {
-            display: none;
-        }
-
-        .section.active {
-            display: block;
-        }
-
-        /* Video container */
-        .video-container {
-            padding: 56.25% 0 0 0;
-            position: relative;
-            margin-bottom: 20px;
-        }
-
-        .video-container iframe {
-            height: 100%;
-            left: 0;
-            position: absolute;
-            top: 0;
-            width: 100%;
         }
     </style>
 </head>
@@ -147,9 +112,9 @@
         <h1>Welcome to My Website</h1>
         <nav>
             <ul>
-                <li><a href="#home" onclick="changeSection('home')">Home</a></li>
-                <li><a href="#contact" onclick="changeSection('contact')">Contact Us</a></li>
-                <li><a href="#about" onclick="changeSection('about')">About Us</a></li>
+                <li><a onclick="changeSection('home')">Home</a></li>
+                <li><a onclick="changeSection('contact')">Contact Us</a></li>
+                <li><a onclick="changeSection('about')">About Us</a></li>
             </ul>
         </nav>
     </header>
@@ -159,15 +124,6 @@
         <section id="home" class="section">
             <h2>Welcome to the Home Section</h2>
             <p>This is the home section where you can add introductory content about your website.</p>
-            
-            <!-- Embed Videos -->
-            <div class="video-container">
-                <iframe src="https://licencetotest.com/embed/b3549821ac6" title="Zeacon | Embed Video" allowfullscreen="" style="border:0px"></iframe>
-            </div>
-
-            <div class="video-container">
-                <iframe src="https://licencetotest.com/player/49044de7-1081-48cd-ab80-df8386604ba5" title="Zeacon | Embed Video" allowfullscreen="" style="border:0px"></iframe>
-            </div>
         </section>
 
         <!-- About Section -->
@@ -200,34 +156,24 @@
     </footer>
 
     <script>
-        // Function to switch sections based on the hash
+        // Function to change sections without updating the URL hash
         function changeSection(sectionId) {
             // Hide all sections
-            var sections = document.querySelectorAll('.section');
-            sections.forEach(function (section) {
+            document.querySelectorAll('.section').forEach(section => {
                 section.classList.remove('active');
             });
 
-            // Show the selected section
+            // Show selected section
             document.getElementById(sectionId).classList.add('active');
-            // Update the URL to reflect the new section
-            window.location.hash = sectionId;
+
+            // Update browser history without showing hash
+            history.pushState(null, null, window.location.pathname);
         }
 
-        // Listen for changes in the URL hash
-        window.addEventListener('hashchange', function () {
-            var sectionId = window.location.hash.substring(1);
-            if (sectionId) {
-                changeSection(sectionId);
-            }
+        // Ensure correct section shows on page load
+        document.addEventListener("DOMContentLoaded", function () {
+            changeSection('home'); // Default section is Home
         });
-
-        // Initialize with the default section
-        if (window.location.hash) {
-            changeSection(window.location.hash.substring(1));
-        } else {
-            changeSection('home');  // Default section is home
-        }
 
         // Handle form submission
         document.getElementById("contactForm").addEventListener("submit", function (event) {
@@ -235,7 +181,7 @@
 
             var formData = new FormData(this);
 
-            // Send form data using fetch API
+            // Simulated form submission using fetch API
             fetch("save_form_data.php", {
                 method: "POST",
                 body: formData
@@ -244,8 +190,6 @@
                 .then(data => {
                     console.log(data);
                     document.getElementById("formSuccessMessage").style.display = "block"; // Show success message
-                    // Optionally, you can redirect the user to another page after successful form submission
-                    // window.location.href = "thank_you.html";
                 })
                 .catch(error => {
                     console.error('Error:', error);
