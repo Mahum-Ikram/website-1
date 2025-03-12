@@ -22,7 +22,19 @@
             background-color: #f4f4f4;
         }
 
-        iframe {
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             border: 0;
@@ -49,82 +61,24 @@
             color: #333;
         }
 
-        /* Contact form styles */
-        form {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            display: block;
-            margin: 10px 0 5px;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        input[type="tel"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-
         footer {
             text-align: center;
             padding: 10px;
             background-color: #f4f4f4;
             font-size: 14px;
         }
-
-        /* Mobile responsive layout */
-        @media (max-width: 768px) {
-            iframe {
-                max-width: 100%;
-                height: auto;
-            }
-
-            nav ul li {
-                display: block;
-                margin: 10px 0;
-            }
-
-            form {
-                padding: 10px;
-            }
-
-            input[type="submit"] {
-                padding: 12px;
-            }
-        }
     </style>
 </head>
 
 <body>
     <header>
-        <iframe src="https://licencetotest.com/player/7a232ed5-b3d5-4060-8228-06fb981cd207" title="Zeacon | Embed Video"
-            width="640px" height="360px" allowfullscreen="" style="border:0px"></iframe>
+        <div class="video-container">
+            <iframe src="https://licencetotest.com/player/7a232ed5-b3d5-4060-8228-06fb981cd207" 
+                title="Zeacon | Embed Video" allowfullscreen></iframe>
+        </div>
         <script id="zeacon-sdk-correlation-manager" type="text/javascript"
             src="https://licencetotest.com/sdk/correlation-manager/bundle.js"></script>
-        <h1>Welcome to My Website 1</h1>
+        <h1>Welcome to My Website</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -133,52 +87,9 @@
         </nav>
     </header>
 
-    <!-- <main>
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <form id="contactForm">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required><br>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br>
-
-                <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone" required><br>
-
-                <input type="submit" value="Submit">
-            </form>
-        </section>
-    </main> -->
-
     <footer>
         <p>&copy; 2024 Your Company. All rights reserved.</p>
     </footer>
-
-    <script>
-        document.getElementById("contactForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent default form submission
-
-            var formData = new FormData(this);
-
-            // Send form data using fetch API
-            fetch("save_form_data.php", {
-                method: "POST",
-                body: formData
-            })
-                .then(response => response.text())
-                .then(data => {
-                    console.log(data);
-                    alert("Form submitted successfully!");
-                    // Optionally, you can redirect the user to another page after successful form submission
-                    // window.location.href = "thank_you.html";
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert("An error occurred while submitting the form. Please try again later.");
-                });
-        });
-    </script>
 </body>
 
 </html>
