@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Start of Zeacon Code -->
+    <script type="text/javascript" async="" id="zeacon-sdk"
+        src="https://licencetotest.com/sdk/correlator.js?api-key=a1efeb6a-8833-482c-b918-e959f09ce040"></script>
+    <!-- End of Zeacon Code -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Website</title>
+    <style>
+        /* Basic Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            padding: 20px;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            font-size: 16px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        /* Sections */
+        .section {
+            display: none;
+            padding: 20px;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        /* Contact form styles */
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #f4f4f4;
+            font-size: 14px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to My Website</h1>
+        <nav>
+            <ul>
+                <li><a onclick="changeSection('home')">Home</a></li>
+                <li><a onclick="changeSection('contact')">Contact Us</a></li>
+                <li><a onclick="changeSection('about')">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="section">
+            <h2>Welcome to the Home Section</h2>
+            <p>This is the home section where you can add introductory content about your website.</p>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <h2>About Us</h2>
+            <p>This is the About Us section where you can provide more information about your company or project.</p>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required><br>
+
+                <input type="submit" value="Submit">
+            </form>
+            <p id="formSuccessMessage" style="display:none;color:green;">Thank you for reaching out! We'll get back to
+                you soon.</p>
+        </section>
+        <iframe src="https://licencetotest.com/player/28ca9f3a-6a40-49d6-a935-3b5e100f7c9e" title="Zeacon | Embed Video"
+            width="640px" height="360px" allowfullscreen="" style="border:0px"></iframe>
+        <script id="zeacon-sdk-correlation-manager" type="text/javascript"
+            src="https://licencetotest.com/sdk/correlation-manager/bundle.js"></script>
+
+        <script id="zeacon-sdk-correlation-manager" type="text/javascript"
+            src="https://licencetotest.com/sdk/correlation-manager/bundle.js"></script>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to change sections without updating the URL hash
+        function changeSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+
+            // Update browser history without showing hash
+            history.pushState(null, null, window.location.pathname);
+        }
+
+        // Ensure correct section shows on page load
+        document.addEventListener("DOMContentLoaded", function () {
+            changeSection('home'); // Default section is Home
+        });
+
+        // Handle form submission
+        document.getElementById("contactForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            var formData = new FormData(this);
+
+            // Simulated form submission using fetch API
+            fetch("save_form_data.php", {
+                method: "POST",
+                body: formData
+            })
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data);
+                    document.getElementById("formSuccessMessage").style.display = "block"; // Show success message
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert("An error occurred while submitting the form. Please try again later.");
+                });
+        });
+    </script>
+</body>
+
+</html>
