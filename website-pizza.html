@@ -7,6 +7,7 @@
         src="https://licencetotest.com/sdk/correlator.js?api-key=12d0b847-fc1c-4e25-8c44-0dc04cfa32e0"></script>
     <!-- End of Zeacon Code -->
 
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         /* Basic Styles */
@@ -14,6 +15,8 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            line-height: 1.6;
+            color: #333;
         }
 
         header {
@@ -22,31 +25,53 @@
             background-color: #f4f4f4;
         }
 
-        iframe {
+        h1 {
+            margin: 20px 0;
+            font-size: 2rem;
+        }
+
+        /* Responsive video container */
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: auto;
+            padding-top: 56.25%;
+            /* 16:9 aspect ratio */
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             border: 0;
         }
 
-        h1 {
-            margin-top: 20px;
-        }
-
+        /* Navigation */
         nav ul {
             list-style-type: none;
             padding: 0;
-            margin: 0;
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         nav ul li {
-            display: inline-block;
-            margin-right: 20px;
+            margin: 5px 15px;
         }
 
         nav ul li a {
             text-decoration: none;
             font-size: 16px;
             color: #333;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #4CAF50;
         }
 
         /* Contact form styles */
@@ -55,33 +80,37 @@
             margin: 20px auto;
             padding: 20px;
             background-color: #f9f9f9;
-            border-radius: 5px;
+            border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         label {
             display: block;
             margin: 10px 0 5px;
+            font-weight: bold;
         }
 
         input[type="text"],
         input[type="email"],
         input[type="tel"] {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin-bottom: 15px;
             border: 1px solid #ccc;
-            border-radius: 4px;
+            border-radius: 6px;
+            font-size: 15px;
         }
 
         input[type="submit"] {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             background-color: #4CAF50;
             color: white;
+            font-size: 16px;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
+            transition: background 0.3s ease;
         }
 
         input[type="submit"]:hover {
@@ -90,29 +119,40 @@
 
         footer {
             text-align: center;
-            padding: 10px;
+            padding: 12px;
             background-color: #f4f4f4;
             font-size: 14px;
+            margin-top: 20px;
         }
 
         /* Mobile responsive layout */
         @media (max-width: 768px) {
-            iframe {
-                max-width: 100%;
-                height: auto;
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
             }
 
             nav ul li {
-                display: block;
-                margin: 10px 0;
+                margin: 8px 0;
             }
 
             form {
-                padding: 10px;
+                margin: 15px;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.3rem;
             }
 
             input[type="submit"] {
-                padding: 12px;
+                font-size: 14px;
             }
         }
     </style>
@@ -120,8 +160,10 @@
 
 <body>
     <header>
-        <iframe src="https://licencetotest.com/player/ffc58511-c44e-4c25-b8e9-b17ce17e3c07" title="Zeacon | Embed Video"
-            width="640px" height="360px" allowfullscreen="" style="border:0px"></iframe>
+        <div class="video-container">
+            <iframe src="https://licencetotest.com/player/ffc58511-c44e-4c25-b8e9-b17ce17e3c07"
+                title="Zeacon | Embed Video" allowfullscreen></iframe>
+        </div>
         <script id="zeacon-sdk-correlation-manager" type="text/javascript"
             src="https://licencetotest.com/sdk/correlation-manager/bundle.js"></script>
         <h1>Welcome to My Website 1</h1>
@@ -135,16 +177,16 @@
 
     <main>
         <section id="contact">
-            <h2>Contact Us</h2>
+            <h2 style="text-align:center;">Contact Us</h2>
             <form id="contactForm">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required><br>
+                <input type="text" id="name" name="name" required>
 
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br>
+                <input type="email" id="email" name="email" required>
 
                 <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone" required><br>
+                <input type="tel" id="phone" name="phone" required>
 
                 <input type="submit" value="Submit">
             </form>
@@ -170,8 +212,6 @@
                 .then(data => {
                     console.log(data);
                     alert("Form submitted successfully!");
-                    // Optionally, you can redirect the user to another page after successful form submission
-                    // window.location.href = "thank_you.html";
                 })
                 .catch(error => {
                     console.error('Error:', error);
